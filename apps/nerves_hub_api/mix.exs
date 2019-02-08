@@ -43,6 +43,8 @@ defmodule NervesHubAPI.Mixfile do
       {:plug_cowboy, "~> 2.0"},
       {:gettext, "~> 0.11"},
       {:distillery, "~> 2.0"},
+      {:jason, "~> 1.0"},
+      {:bureaucrat, "~> 0.2.5", only: [:dev, :test]},
       {:cowboy, "~> 2.1", override: true},
       {:nerves_hub_device, in_umbrella: true},
       {:nerves_hub_web_core, in_umbrella: true}
