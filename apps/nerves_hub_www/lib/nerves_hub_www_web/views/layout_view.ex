@@ -275,52 +275,12 @@ defmodule NervesHubWWWWeb.LayoutView do
   end
 
   defmodule DateTimeFormat do
-    @months %{
-      1 => "Jan",
-      2 => "Feb",
-      3 => "Mar",
-      4 => "Apr",
-      5 => "May",
-      6 => "Jun",
-      7 => "Jul",
-      8 => "Aug",
-      9 => "Sep",
-      10 => "Oct",
-      11 => "Nov",
-      12 => "Dec"
-    }
-
-    def format_date(timestamp) do
-      localTimestamp = Timex.local(timestamp)
-      '#{@months[localTimestamp.month]} #{localTimestamp.day}, #{localTimestamp.year}'
-    end
-
-    def date_at_time(timestamp) do
-      localTimestamp = Timex.local(timestamp)
-      minute = localTimestamp.minute
-      {hour, label} = Timex.Time.to_12hour_clock(localTimestamp.hour)
-      compareDates = Date.compare(localTimestamp, DateTime.utc_now())
-
-      if compareDates == :eq do
-        'Today at #{hour}:#{render_minute(minute)}#{label}'
-      else
-        '#{@months[localTimestamp.month]} #{localTimestamp.day}, #{localTimestamp.year} at #{hour}:#{
-          render_minute(minute)
-        }#{label}'
-      end
-    end
-
-    def render_minute(minute) do
-      if minute == 0 do
-        '00'
-      else
-        minute
-      end
-    end
-
     def from_now(timestamp) do
-      localTimestamp = Timex.local(timestamp)
-      Timex.from_now(localTimestamp)
+      if Timex.is_valid?(timestamp) do
+        Timex.from_now(timestamp)
+      else
+        timestamp
+      end
     end
   end
 end

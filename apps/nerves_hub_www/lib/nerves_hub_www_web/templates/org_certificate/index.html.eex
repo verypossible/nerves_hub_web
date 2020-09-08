@@ -31,10 +31,10 @@
           <% end %>
         </td>
         <td>
-          <%= DateTimeFormat.format_date(cert.not_before) %>
+          <%= cert.not_before %>
         </td>
         <td>
-          <%= DateTimeFormat.format_date(cert.not_after) %>
+          <%= cert.not_after %>
         </td>
       </tr>
     <% end %>

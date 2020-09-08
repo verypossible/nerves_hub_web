@@ -27,10 +27,10 @@
       <% end %>
     </td>
     <td>
-      <%= DateTimeFormat.format_date(cert.not_before) %>
+      <%= cert.not_before %>
     </td>
     <td>
-      <%= DateTimeFormat.format_date(cert.not_after) %>
+      <%= cert.not_after %>
     </td>
     <td>
       <%= link "Delete", class: "btn btn-danger", to: Routes.account_certificate_path(@conn, :delete, @user.username, cert), method: :delete, data: [confirm: "Are you sure?"]%>
