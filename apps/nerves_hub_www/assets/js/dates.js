@@ -14,8 +14,10 @@ let formatDateTime = datetime => {
   if (datetime === 'never' || datetime === '') {
     return datetime
   } else {
-    const date = new Date(datetime)
-    return moment(date).format('MMM Do, YYYY [at] h:mma')
+    return moment
+      .utc(datetime)
+      .local()
+      .format('MMM Do, YYYY [at] h:mma')
   }
 }
 
