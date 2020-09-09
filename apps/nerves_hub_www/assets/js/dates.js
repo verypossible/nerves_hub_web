@@ -15,7 +15,7 @@ let formatDateTime = datetime => {
     return datetime
   } else {
     const date = new Date(datetime)
-    return moment(date).format("MMM Do, YYYY [at] h:mma")
+    return moment(date).format('MMM Do, YYYY [at] h:mma')
   }
 }
 
