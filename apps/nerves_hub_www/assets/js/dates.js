@@ -1,6 +1,6 @@
-let moment = require('moment')
+const moment = require('moment')
 
-let formatDateTime = datetime => {
+const formatDateTime = datetime => {
   /*
     Safari wants strict iso8601 format "YYYY-MM-DDTHH:MM:SSZ",
     but elixir to_string default supplies as "YYYY-MM-DD HH:MM:SSZ".
